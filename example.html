@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Resume</title>
+
+    <style>
+        /* GENERAL SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            color: #7A3452;
+            background: linear-gradient(
+                -45deg,
+                #7A3452,
+                #A64D70,
+                #C08098,
+                #D8A6B8
+            );
+            background-size: 400% 400%;
+            animation: movingBackground 9s ease infinite;
+        }
+
+        /* ANIMATED BACKGROUND */
+        @keyframes movingBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 100%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: #F4E9E8;
+            background: #7A3452;
+        }
+
+        header h1 {
+            font-size: 70px;
+            letter-spacing: 8px;
+        }
+
+        header p {
+            margin-top: 20px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 25px;
+            background: rgba (255,108,149,0.7);
+        }
+
+        nav button {
+            border: none;
+            padding: 22px 30px;
+            border-radius: 35px;
+            background: #D8A6B8;
+            color: #F4E9E8;
+            cursor: pointer;
+            transition: 0.5s;
+            font-size: 18px;
+        }
+
+        nav button:hover {
+            background:#E8CDAF;
+            color: #A64D70;
+            transform: translateY(-3px);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 10000px;
+            margin: 50px auto;
+            padding: 40px;
+        }
+
+        .page {
+            display: none;
+            background: rgb(122, 52, 82);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 9px 40px rgb (122, 52, 82);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 1;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 2;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #F4E9E8;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #C08098;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color:  #F4E9E8;
+            margin-bottom: 8px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        /* HOME */
+        .home-content {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #F4E9E8;
+            margin-bottom: 20px;
+        }
+
+        .home-content h2 {
+            border: none;
+        }
+
+        .welcome {
+            background: #C08098;
+            padding: 40px;
+            border-radius: 35px;
+            margin-top: 20px;
+        }
+
+        /* BIODATA */
+        .biodata-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .biodata-table td {
+            padding: 13px;
+            border-bottom: 1px solid #D6A6B8;
+        }
+
+        .biodata-table td:first-child {
+            font-weight: bold;
+            width: 35%;
+        }
+
+        /* SKILLS */
+        .skill {
+            margin: 18px 0;
+        }
+
+        .skill-bar {
+            background: #D6A6B8;
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: #F4E9E8;
+            border-radius: 20px;
+        }
+
+        /* EXPERIENCE & EDUCATION */
+        .timeline {
+            border-left: 4px solid #F4E9E8;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 13px;
+            height: 13px;
+            background: #F4E9E8;
+            border-radius: 50%;
+            position: absolute;
+            left: -28px;
+            top: 5px;
+        }
+
+        /* FAMILY */
+        .family-image {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: #E6D6FF;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .contact-box a {
+            color: #7A3452;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: #7A3452;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .page {
+                padding: 22px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery img {
+                height: 140px;
+            }
+
+            nav button {
+                padding: 9px 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>MY PERSONAL RESUME</h1><br><br>
+
+	<marquee> WELCOME TO MY PERSONAL WEBSITE </marquee><br><br>
+
+    </header>
+
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('biodata')">Biodata</button>
+        <button onclick="showPage('experience')">Experience</button>
+        <button onclick="showPage('education')">Education</button>
+        <button onclick="showPage('family')">Family</button>
+        <button onclick="showPage('gallery')">Gallery</button>
+        <button onclick="showPage('contact')">Contact</button>
+    </nav>
+
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5enxwA8aAbwZbf5qCHORXi?utm_source=generator&si=37c99e89e81c46bc" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+    <div class="container">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="page active">
+            <div class="home-content">
+                <img src="images/profile.jpg"
+                     alt="My Profile Picture"
+                     class="profile-image">
+
+                <h2>Hello, Welcome to My Website!</h2>
+
+                <h3>Nur Farah Adila Binti Mohd Adlan</h3>
+
+                <p>Diploma in Information Management</p>
+                <p>Universiti Teknologi MARA (UiTM)</p>
+
+                <div class="welcome">
+                    <h3>About My Website</h3>
+                    <p>
+                        This website provides information about my
+                        personal background, education, experiences,
+                        family and achievements.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="page">
+            <h2>My Experience</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <h3>MPP / JPP Faculty Representative</h3>
+                    <p>Student leadership and representation.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Club President</h3>
+                    <p>
+                        Responsible for leading club activities,
+                        managing members and organising programmes.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Programme Organiser</h3>
+                    <p>
+                        Participated in planning and organising
+                        student programmes and activities.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Bicara Siswa Pidato</h3>
+                    <p>Achieved First Place in the speech competition.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Hands of Harmony</h3>
+                    <p>
+                        Involved in an international programme
+                        with UNIBA Indonesia and UiTM Johor.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="page">
+            <h2>My Education</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <h3>Universiti Teknologi MARA (UiTM)</h3>
+                    <p>Diploma in Information Management</p>
+                    <p>UiTM Cawangan Johor, Kampus Segamat</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Secondary School</h3>
+                    <p>Insert your secondary school name here.</p>
+                    <p>Insert your study years here.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FAMILY SECTION -->
+        <section id="family" class="page">
+            <h2>My Family</h2>
+
+            <img src="images/family.jpg"
+                 alt="My Family Picture"
+                 class="family-image">
+
+            <p>
+                Family is one of the most important parts of my life.
+                They are my biggest supporters and always encourage
+                me to become a better person.
+            </p>
+
+            <h3>My Family Members</h3>
+            <ul style="padding-left:25px; line-height:2;">
+                <li>Father</li>
+                <li>Mother</li>
+                <li>My Siblings</li>
+            </ul>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="page">
+            <h2>My Gallery</h2>
+
+            <p>A collection of my memorable moments.</p>
+
+            <div class="gallery">
+                <img src="images/gallery1.jpg" alt="Gallery Image 1">
+                <img src="images/gallery2.jpg" alt="Gallery Image 2">
+                <img src="images/gallery3.jpg" alt="Gallery Image 3">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <img src="images/gallery5.jpg" alt="Gallery Image 5">
+                <img src="images/gallery6.jpg" alt="Gallery Image 6">
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="page">
+            <h2>Contact Me</h2>
+
+            <div class="contact-box">
+                <p><strong>Name:</strong> Nur Farah Adila</p>
+
+                <p>
+                    <strong>Email:</strong>
+                    your-email@example.com
+                </p>
+
+                <p>
+                    <strong>Instagram:</strong>
+                    <a href="https://www.instagram.com/"
+                       target="_blank">Visit Instagram</a>
+                </p>
+
+                <p>
+                    <strong>University:</strong>
+                    Universiti Teknologi MARA (UiTM)
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 My Personal Resume Website</p>
+        <p>Designed by Nur Farah Adila</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function showPage(pageId) {
+
+            // Hide all sections
+            let pages = document.querySelectorAll(".page");
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            // Show selected section
+            document.getElementById(pageId).classList.add("active");
+
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+</html>
