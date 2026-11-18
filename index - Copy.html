@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Resume | Dila</title>
+
+    <style>
+        /* GENERAL SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eadcf8, #c8a2e8, #f7eaff);
+            background-attachment: fixed;
+            color: #382447;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 35px 20px;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: #63368a;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* NAVIGATION MENU */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        nav button {
+            background: #ffffff;
+            color: #63368a;
+            border: 2px solid #d6b8ed;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: #7543a3;
+            color: white;
+            border-color: #7543a3;
+            transform: translateY(-3px);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .content {
+            display: none;
+            background: rgba(255, 255, 255, 0.88);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(82, 45, 112, 0.12);
+            animation: fadeIn 0.5s;
+            min-height: 300px;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .content h2 {
+            color: #7543a3;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dfc5f3;
+            padding-bottom: 12px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .content ul {
+            margin-left: 25px;
+            line-height: 2;
+        }
+
+        /* PROFILE PHOTO */
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #d6b8ed;
+            margin-bottom: 20px;
+        }
+
+        .home-section {
+            text-align: center;
+        }
+
+        .home-section h2 {
+            border: none;
+        }
+
+        /* INFORMATION CARDS */
+        .card {
+            background: #f7efff;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #9461bd;
+        }
+
+        .card h3 {
+            color: #63368a;
+            margin-bottom: 8px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            background: #f7efff;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 30px;
+            color: #63368a;
+            font-size: 13px;
+        }
+
+        /* SIMPLE ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            nav button {
+                padding: 10px 14px;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            .content {
+                padding: 22px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- WEBSITE HEADER -->
+    <header>
+        <h1>My Personal Resume</h1>
+        <p>GET TO KNOW ME BETTER</p>
+    </header>
+
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <button class="active" onclick="showPage('home', this)">Home</button>
+        <button onclick="showPage('biodata', this)">Biodata</button>
+        <button onclick="showPage('experience', this)">Experience</button>
+        <button onclick="showPage('education', this)">Education</button>
+        <button onclick="showPage('family', this)">Family</button>
+        <button onclick="showPage('gallery', this)">Gallery</button>
+    </nav>
+
+    <!-- WEBSITE CONTENT -->
+    <main>
+
+        <!-- HOME PAGE -->
+        <section id="home" class="content active home-section">
+
+            <!-- Replace profile.jpg with your own photo -->
+            <img src="profile.jpg"
+                 alt="My profile photograph"
+                 class="profile-photo">
+
+            <h2>Assalamualaikum & Welcome!</h2>
+
+            <p>
+                Hello! My name is <strong>Nur Farah Adila</strong>.
+                Welcome to my personal resume website.
+            </p>
+
+            <p>
+                I am an Information Management student who is
+                passionate about learning, leadership and personal development.
+            </p>
+
+            <p>
+                Explore this website to learn more about my background,
+                education, experiences and interests.
+            </p>
+
+        </section>
+
+        <!-- BIODATA PAGE -->
+        <section id="biodata" class="content">
+
+            <h2>My Biodata</h2>
+
+            <div class="card">
+                <p><strong>Full Name:</strong> Nur Farah Adila Binti Mohd Adlan</p>
+                <p><strong>Nickname:</strong> Dila</p>
+                <p><strong>Nationality:</strong> Malaysian</p>
+                <p><strong>Programme:</strong> Diploma in Information Management</p>
+                <p><strong>University:</strong> Universiti Teknologi MARA (UiTM)</p>
+                <p><strong>Campus:</strong> Segamat, Johor</p>
+            </div>
+
+            <h3>My Skills</h3>
+
+            <ul>
+                <li>Microsoft Word</li>
+                <li>Canva</li>
+                <li>Data Entry and File Management</li>
+                <li>Internet Research</li>
+                <li>Communication and Leadership</li>
+            </ul>
+
+        </section>
+
+        <!-- EXPERIENCE PAGE -->
+        <section id="experience" class="content">
+
+            <h2>My Experience</h2>
+
+            <div class="card">
+                <h3>Student Leadership</h3>
+                <p>
+                    Developed leadership, teamwork and communication
+                    skills through student activities and organisational roles.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Club Management</h3>
+                <p>
+                    Participated in organising programmes, coordinating
+                    activities and working with other committee members.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Academic Projects</h3>
+                <p>
+                    Gained experience in preparing academic assignments,
+                    managing information and developing digital content.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION PAGE -->
+        <section id="education" class="content">
+
+            <h2>My Education</h2>
+
+            <div class="card">
+                <h3>Universiti Teknologi MARA (UiTM)</h3>
+                <p><strong>Programme:</strong> Diploma in Information Management</p>
+                <p><strong>Campus:</strong> UiTM Segamat, Johor</p>
+                <p><strong>Year:</strong> Add your study period here</p>
+            </div>
+
+            <div class="card">
+                <h3>Secondary School</h3>
+                <p><strong>School Name:</strong> Add your school name</p>
+                <p><strong>Year:</strong> Add your school years</p>
+            </div>
+
+        </section>
+
+        <!-- FAMILY PAGE -->
+        <section id="family" class="content">
+
+            <h2>My Family</h2>
+
+            <p>
+                My family is an important part of my life.
+                They inspire me to work hard, stay positive and
+                become a better person.
+            </p>
+
+            <div class="card">
+                <h3>My Parents</h3>
+                <p>Add a short introduction about your parents here.</p>
+            </div>
+
+            <div class="card">
+                <h3>My Siblings</h3>
+                <p>Add information about your siblings here.</p>
+            </div>
+
+            <p>
+                Family teaches me the importance of love, respect
+                and supporting one another.
+            </p>
+
+        </section>
+
+        <!-- GALLERY PAGE -->
+        <section id="gallery" class="content">
+
+            <h2>My Gallery</h2>
+
+            <p>Here are some memorable moments from my life.</p>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="gallery1.jpg"
+                         alt="My university activity">
+                    <p>University Activities</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gallery2.jpg"
+                         alt="My leadership programme">
+                    <p>Leadership Experiences</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gallery3.jpg"
+                         alt="My memorable moments">
+                    <p>Memorable Moments</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gallery4.jpg"
+                         alt="My favourite memories">
+                    <p>My Favourite Memories</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- WEBSITE FOOTER -->
+    <footer>
+        <p>
+            &copy; 2026 Nur Farah Adila Binti Mohd Adlan.
+            All Rights Reserved.
+        </p>
+
+        <p>Created for IMD318 Individual Project.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR NAVIGATION -->
+    <script>
+        function showPage(pageId, button) {
+
+            // Hide all content sections
+            const sections = document.querySelectorAll(".content");
+
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+            });
+
+            // Show the selected section
+            document.getElementById(pageId).classList.add("active");
+
+            // Remove active status from all buttons
+            const buttons = document.querySelectorAll("nav button");
+
+            buttons.forEach(function(btn) {
+                btn.classList.remove("active");
+            });
+
+            // Highlight the selected button
+            button.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
